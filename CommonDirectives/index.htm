@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="myApp">
+    <head>
+        <title>Common Directives</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="UTF-8">
+
+        <!-- load bootstrap and fontawesome via CDN -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+        <!-- load angular via CDN -->
+        <script src="app.js"></script>
+        <style>
+            html, body, input, select, textarea
+            {
+                font-size: 1.05em;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div ng-controller="mainController">
+                <div>
+                    <label>What is your name?</label>
+                    <input type="text" ng-model="name" />
+                </div>
+                <div class="alert" ng-class="{ 'alert-warning': name.length < characters, 'alert-danger': name.length > characters }" ng-if="name.length !== characters">
+                    <div ng-show="name.length < characters">
+                        You have less than 6 characters!
+                    </div>
+                    <div ng-show="name.length > characters">
+                        You have more than 6 characters!
+                    </div>
+                </div>
+                <hr />
+                <h1>Hi {{ lowercasename() }}!</h1>
+                <h3>Rules</h3>
+                <ul>
+                    <li ng-repeat="rule in rules">
+                        {{ rule.ruledesc }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
