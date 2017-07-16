@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="myApp">
+    <head>
+        <title>Nice HTTP angular wrapper Example</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="UTF-8">
+        <!-- load bootstrap and angular -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="app.js"></script>
+        <style>
+            html, body, input, select, textarea
+            {
+                font-size: 1.05em;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div ng-controller="mainController">
+                <div>
+                    <label>What is your name?</label>
+                    <input type="text" ng-model="name" />
+                </div>
+                <div class="alert" ng-class="{ 'alert-warning': name.length < characters, 'alert-danger': name.length > characters }" ng-if="name.length !== characters">
+                    <div ng-show="name.length < characters">
+                        You have less than 6 characters!
+                    </div>
+                    <div ng-show="name.length > characters">
+                        You have more than 6 characters!
+                    </div>
+                </div>
+                <hr />
+                <h1>Hi {{ lowercasename() }}!</h1>
+                <h3>Requirements</h3>
+                <ul>
+                    <li ng-repeat="rule in rules">
+                        {{ rule.RuleName }}
+                    </li>
+                </ul>
+                Add Requirement: <input type="text" ng-model="newRule" /><a href="#" class="btn btn-default" ng-click="addRule()">Add</a>
+            </div>
+		</div>
+    </body>
+</html>
