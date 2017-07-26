@@ -16,7 +16,7 @@ myApp.config(function ($routeProvider) {
         templateUrl: 'pages/second.html',
         controller: 'secondController'
     })
-    
+    // This is what makes single page
 });
 
 myApp.controller('mainController', ['$scope', '$log', function($scope, $log) {
